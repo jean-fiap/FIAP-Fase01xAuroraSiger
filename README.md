@@ -41,7 +41,7 @@ Carga mínima para decolar mantendo a reserva: **80,43%** (o protocolo exige 85%
 ## Estrutura
 
 ```
-aurora-siger/
+FIAP-Fase01xAuroraSiger/
 ├── data/telemetria_aurora.csv      # dataset de telemetria
 ├── notebook/aurora_siger.ipynb     # notebook com toda a análise executada
 ├── src/
@@ -60,8 +60,8 @@ aurora-siger/
 Requisitos: Python 3.10 ou superior.
 
 ```bash
-git clone <url-deste-repositorio>
-cd aurora-siger
+git clone https://github.com/jean-fiap/FIAP-Fase01xAuroraSiger.git
+cd FIAP-Fase01xAuroraSiger
 pip install -r requirements.txt
 
 # script de verificação
