@@ -3,3 +3,9 @@ __pycache__/
 .ipynb_checkpoints/
 .DS_Store
 .venv/
+
+# ferramentas de build e arquivos intermediarios (nao fazem parte da entrega)
+tools/
+assets/saida_verificacao.txt
+assets/tabela_*.png
+docs/algoritmo/fluxograma.dot

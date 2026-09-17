@@ -46,12 +46,9 @@ aurora-siger/
 ├── notebook/aurora_siger.ipynb     # notebook com toda a análise executada
 ├── src/
 │   ├── aurora.py                   # faixas seguras, verificações e análise energética
-│   ├── verificacao.py              # script principal
-│   ├── gerar_dataset.py            # gera o dataset (seed fixa, reproduzível)
-│   ├── gerar_imagens.py            # gera prints e gráficos
-│   └── gerar_notebook.py           # monta e executa o notebook
+│   └── verificacao.py              # script principal
 ├── docs/
-│   ├── algoritmo/                  # fluxograma (.dot) e pseudocódigo
+│   ├── algoritmo/pseudocodigo.txt  # pseudocódigo do algoritmo
 │   ├── analise_ia.md               # prompt e resposta da IA
 │   ├── reflexao_critica.md
 │   └── relatorio_aurora_siger.pdf  # relatório final
@@ -73,8 +70,6 @@ python3 src/verificacao.py
 # notebook
 jupyter notebook notebook/aurora_siger.ipynb
 ```
-
-Opcional: `python3 src/gerar_dataset.py` recria o dataset e `python3 src/gerar_imagens.py` recria as imagens.
 
 ## Prints da execução
 
