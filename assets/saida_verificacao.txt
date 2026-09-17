@@ -1,0 +1,47 @@
+$ python3 src/verificacao.py
+================================================================
+ MISSAO AURORA SIGER | VERIFICACAO DE PRE-DECOLAGEM
+================================================================
+Leituras carregadas: 20
+
+[OK] L001 ( T-20min) -> PRONTO PARA DECOLAR | margem   921.6 kWh
+[OK] L002 ( T-19min) -> PRONTO PARA DECOLAR | margem  1289.6 kWh
+[OK] L003 ( T-18min) -> PRONTO PARA DECOLAR | margem   884.8 kWh
+[OK] L004 ( T-17min) -> PRONTO PARA DECOLAR | margem  1142.4 kWh
+[OK] L005 ( T-16min) -> PRONTO PARA DECOLAR | margem  1239.0 kWh
+[OK] L006 ( T-15min) -> PRONTO PARA DECOLAR | margem   958.4 kWh
+[OK] L007 ( T-14min) -> PRONTO PARA DECOLAR | margem   811.2 kWh
+[OK] L008 ( T-13min) -> PRONTO PARA DECOLAR | margem  1239.0 kWh
+[X]  L009 ( T-12min) -> DECOLAGEM ABORTADA | margem   130.4 kWh
+       - Nivel de energia (%) abaixo do minimo: 72.4 < 85.0
+       - Reserva energetica insuficiente: 130.4 kWh < 500 kWh
+[X]  L010 ( T-11min) -> DECOLAGEM ABORTADA | margem  1271.2 kWh
+       - Integridade estrutural comprometida (0)
+[X]  L011 ( T-10min) -> DECOLAGEM ABORTADA | margem   894.0 kWh
+       - Temperatura interna (C) acima do maximo: 31.8 > 27.0
+[X]  L012 (  T-9min) -> DECOLAGEM ABORTADA | margem   815.8 kWh
+       - Pressao dos tanques (bar) abaixo do minimo: 176.0 < 190.0
+[X]  L013 (  T-8min) -> DECOLAGEM ABORTADA | margem   976.8 kWh
+       - Pressao dos tanques (bar) acima do maximo: 234.0 > 220.0
+[X]  L014 (  T-7min) -> DECOLAGEM ABORTADA | margem  1142.4 kWh
+       - Modulo critico em falha: Propulsao
+[X]  L015 (  T-6min) -> DECOLAGEM ABORTADA | margem   852.6 kWh
+       - Modulo critico em falha: Suporte de vida
+[X]  L016 (  T-5min) -> DECOLAGEM ABORTADA | margem  1087.2 kWh
+       - Temperatura interna (C) acima do maximo: 29.5 > 27.0
+       - Temperatura externa (C) acima do maximo: 78.0 > 60.0
+[X]  L017 (  T-4min) -> DECOLAGEM ABORTADA | margem   480.0 kWh
+       - Nivel de energia (%) abaixo do minimo: 80.0 < 85.0
+       - Modulo critico em falha: Comunicacao
+       - Reserva energetica insuficiente: 480.0 kWh < 500 kWh
+[OK] L018 (  T-3min) -> PRONTO PARA DECOLAR | margem   710.0 kWh
+[OK] L019 (  T-2min) -> PRONTO PARA DECOLAR | margem  1147.0 kWh
+[OK] L020 (  T-1min) -> PRONTO PARA DECOLAR | margem   912.4 kWh
+
+----------------------------------------------------------------
+Resumo: 11 PRONTO PARA DECOLAR | 9 DECOLAGEM ABORTADA
+Energia: capacidade 5000 kWh | consumo decolagem 3200 kWh | perdas 8% | reserva 500 kWh
+Carga minima para decolar com reserva: 80.43%
+----------------------------------------------------------------
+STATUS FINAL (leitura mais recente L020): PRONTO PARA DECOLAR
+================================================================

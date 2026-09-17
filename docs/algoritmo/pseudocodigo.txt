@@ -1,0 +1,56 @@
+ALGORITMO VerificacaoPreDecolagemAurora
+
+CONSTANTES
+    TEMP_INT_MIN <- 18      TEMP_INT_MAX <- 27        // graus C
+    TEMP_EXT_MIN <- -90     TEMP_EXT_MAX <- 60        // graus C
+    ENERGIA_MIN  <- 85                                 // %
+    PRESSAO_MIN  <- 190     PRESSAO_MAX  <- 220       // bar
+    MODULOS      <- [propulsao, navegacao, suporte_vida, comunicacao]
+    CAPACIDADE   <- 5000    // kWh
+    CONSUMO_DEC  <- 3200    // kWh
+    PERDAS       <- 0,08
+    RESERVA_MIN  <- 500     // kWh
+
+INICIO
+    leituras <- LER_CSV("data/telemetria_aurora.csv")
+    PARA CADA leitura EM leituras FACA
+        falhas <- lista vazia
+
+        SE leitura.integridade_estrutural <> 1 ENTAO
+            ADICIONAR "integridade estrutural comprometida" EM falhas
+        FIMSE
+        SE leitura.temp_interna < TEMP_INT_MIN OU leitura.temp_interna > TEMP_INT_MAX ENTAO
+            ADICIONAR "temperatura interna fora da faixa" EM falhas
+        FIMSE
+        SE leitura.temp_externa < TEMP_EXT_MIN OU leitura.temp_externa > TEMP_EXT_MAX ENTAO
+            ADICIONAR "temperatura externa fora da faixa" EM falhas
+        FIMSE
+        SE leitura.energia < ENERGIA_MIN ENTAO
+            ADICIONAR "energia abaixo do minimo" EM falhas
+        FIMSE
+        SE leitura.pressao < PRESSAO_MIN OU leitura.pressao > PRESSAO_MAX ENTAO
+            ADICIONAR "pressao dos tanques fora da faixa" EM falhas
+        FIMSE
+        PARA CADA modulo EM MODULOS FACA
+            SE leitura[modulo] <> "OK" ENTAO
+                ADICIONAR "modulo em falha: " + modulo EM falhas
+            FIMSE
+        FIMPARA
+
+        // analise energetica
+        armazenada <- CAPACIDADE * leitura.energia / 100
+        util       <- armazenada * (1 - PERDAS)
+        margem     <- util - CONSUMO_DEC
+        SE margem < RESERVA_MIN ENTAO
+            ADICIONAR "reserva energetica insuficiente" EM falhas
+        FIMSE
+
+        SE falhas ESTA VAZIA ENTAO
+            ESCREVER leitura.id, "PRONTO PARA DECOLAR"
+        SENAO
+            ESCREVER leitura.id, "DECOLAGEM ABORTADA", falhas
+        FIMSE
+    FIMPARA
+    ESCREVER resumo (total de prontas e abortadas)
+    ESCREVER status final da leitura mais recente
+FIM

@@ -1,0 +1,39 @@
+digraph aurora {
+  graph [rankdir=TB, fontname="DejaVu Sans", bgcolor="white", pad=0.3, nodesep=0.35, ranksep=0.35];
+  node  [fontname="DejaVu Sans", fontsize=11, style="filled", fillcolor="#F4F6FA", color="#3A4A6B"];
+  edge  [fontname="DejaVu Sans", fontsize=10, color="#3A4A6B"];
+  inicio [shape=oval, label="INICIO", fillcolor="#DDE6F5"];
+  ler    [shape=parallelogram, label="Ler telemetria (CSV)"];
+  prox   [shape=diamond, label="Ha leitura\na verificar?"];
+  zera   [shape=box, label="falhas = [ ]"];
+  v1 [shape=diamond, label="integridade == 1 ?"];
+  v2 [shape=diamond, label="18 <= temp. interna <= 27 ?\n-90 <= temp. externa <= 60 ?"];
+  v3 [shape=diamond, label="energia >= 85 % ?"];
+  v4 [shape=diamond, label="190 <= pressao <= 220 bar ?"];
+  v5 [shape=diamond, label="4 modulos criticos == OK ?"];
+  en [shape=box, label="Analise energetica:\nutil = 5000 x carga x 0,92\nmargem = util - 3200"];
+  v6 [shape=diamond, label="margem >= 500 kWh ?"];
+  add [shape=box, label="Registrar falha em 'falhas'", fillcolor="#FBE3E3"];
+  dec [shape=diamond, label="falhas vazia?"];
+  ok  [shape=box, label="PRONTO PARA DECOLAR", fillcolor="#D8F0DF", color="#2E7D4F", fontcolor="#1E5A37"];
+  ab  [shape=box, label="DECOLAGEM ABORTADA\n+ listar falhas", fillcolor="#FBE3E3", color="#B23A3A", fontcolor="#7F1F1F"];
+  out [shape=parallelogram, label="Imprimir decisao"];
+  fim [shape=oval, label="FIM\n(imprime resumo e status final)", fillcolor="#DDE6F5"];
+
+  inicio -> ler -> prox;
+  prox -> zera [label="sim"];
+  prox -> fim  [label="nao"];
+  zera -> v1;
+  v1 -> v2 [label="sim"]; v1 -> add [label="nao", style=dashed];
+  v2 -> v3 [label="sim"]; v2 -> add [label="nao", style=dashed];
+  v3 -> v4 [label="sim"]; v3 -> add [label="nao", style=dashed];
+  v4 -> v5 [label="sim"]; v4 -> add [label="nao", style=dashed];
+  v5 -> en [label="sim"]; v5 -> add [label="nao", style=dashed];
+  add -> en [style=dotted, label="continua\nverificando"];
+  en -> v6;
+  v6 -> dec [label="sim"]; v6 -> add2 [label="nao", style=dashed];
+  add2 [shape=box, label="Registrar falha\nenergetica", fillcolor="#FBE3E3"];
+  add2 -> dec;
+  dec -> ok [label="sim"]; dec -> ab [label="nao"];
+  ok -> out; ab -> out; out -> prox;
+}

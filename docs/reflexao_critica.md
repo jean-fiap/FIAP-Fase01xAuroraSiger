@@ -1,0 +1,13 @@
+# Reflexão crítica
+
+## Ética e responsabilidade
+
+Um algoritmo de pré-decolagem decide, na prática, se vidas humanas e um investimento bilionário serão expostos a risco. Por isso, cada faixa segura escolhida neste projeto é uma decisão ética, não só técnica: um limite frouxo demais aumenta o risco de acidente; um limite rígido demais gera abortos desnecessários e custos. Casos como os das naves Challenger (1986) e Columbia (2003) mostram que o problema raramente é a ausência de dados, e sim a pressão para ignorar sinais de alerta. Um sistema responsável precisa ser transparente (o script lista o motivo de cada aborto), auditável (regras explícitas e reproduzíveis) e deve manter o ser humano como responsável final. O uso de IA reforça essa exigência: modelos podem errar com confiança, então suas sugestões precisam ser verificadas e nunca podem ser a única base de uma decisão crítica.
+
+## Impacto social da exploração espacial
+
+A exploração espacial gera benefícios que chegam ao cotidiano: satélites de comunicação e GPS, previsão do tempo, monitoramento de queimadas e do desmatamento, além de tecnologias derivadas como sensores de imagem, materiais isolantes e equipamentos médicos. Ela também inspira vocações científicas e movimenta uma cadeia produtiva de alta tecnologia, na qual o Brasil tem participação com o Centro de Lançamento de Alcântara e programas de satélites. Por outro lado, há questões sociais importantes: o alto custo em países com necessidades básicas não atendidas, a concentração do acesso ao espaço em poucas empresas e nações, e o impacto sobre comunidades locais próximas a bases de lançamento. Uma exploração espacial justa precisa distribuir seus benefícios e considerar quem arca com seus custos.
+
+## Sustentabilidade tecnológica
+
+A análise energética deste projeto mostra, em escala pequena, o dilema central: no espaço, a energia é escassa e toda perda (8% no modelo) ou processamento desnecessário reduz a autonomia da missão. Isso incentiva soluções eficientes (baterias de maior densidade, painéis solares, algoritmos leves e desligamento de sistemas não essenciais) que também têm aplicação na Terra, na transição para fontes renováveis. A sustentabilidade também passa pelo lixo espacial: milhares de fragmentos em órbita ameaçam satélites e missões futuras, o que exige veículos reutilizáveis, planos de descarte ao fim da vida útil e cooperação internacional. Por fim, há o impacto ambiental dos próprios lançamentos (emissões e resíduos de propelentes). Uma missão como a Aurora Siger só é sustentável se for planejada considerando todo o ciclo de vida da tecnologia, da fabricação ao descarte.
